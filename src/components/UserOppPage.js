@@ -106,6 +106,7 @@ class UserOppPage extends React.Component {
                         <OppForm
                             {...props}
                             method='POST' 
+                            refresh={this.updateOpps}
                             email={this.email}
                         />
                     )}
