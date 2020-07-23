@@ -50,6 +50,7 @@ class OppForm extends React.Component{
 
     handleSubmit(){
         const body = {...this.state , interest : this.state.interest / 100 };
+        console.log(body)
         fetch(`/user/${this.props.email}/opportunities${this.props.method === "PATCH" ?  `/${this.id}` : ''}`,{
             method : this.props.method || "POST",
             headers : {'Content-Type': 'application/json'},
