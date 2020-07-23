@@ -20,7 +20,7 @@ class OppForm extends React.Component{
     }
 
     componentDidMount(){
-        if (this.props.method == "PATCH"){
+        if (this.props.method === "PATCH"){
             fetch(`/user/${this.props.email}/opportunities/${this.id}`)
             .then( body => body.json() )
             .then( data => {

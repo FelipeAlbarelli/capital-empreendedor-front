@@ -21,13 +21,18 @@ class UserOppPage extends React.Component {
         this.handleOrder = this.handleOrder.bind(this);
         this.deleteOpp = this.deleteOpp.bind(this);
         this.updateOpps = this.updateOpps.bind(this);
-        this.history = props.history
     }
 
     deleteOpp(id){
-        fetch(`/user/${this.email}/opportunities/${id}`)
-            .then( body => body.json() )
-            .then( console.log )
+        fetch(`/user/${this.email}/opportunities/${id}`,{
+            method : "DELETe"
+        })
+            .then( res => {
+                if (!res.ok){
+                    throw new Error('error with connection')
+                }
+                this.updateOpps();
+            } )
             .catch( console.log )
     }
 
